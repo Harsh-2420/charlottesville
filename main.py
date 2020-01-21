@@ -1,4 +1,3 @@
-import random.randint
 import nltk
 import pandas as pd
 import matplotlib.pyplot as plt
@@ -26,4 +25,17 @@ rslt = rslt.iloc[1:]
 plt.rcParams["figure.figsize"] = [30.0, 20.0]
 ax = sns.barplot(y=rslt.index, x="Frequency", data=rslt)
 ax.tick_params(labelsize=30)
+
+
+tags = tweets['hashtags'].str.lower().str.cat(sep=' ').split()
+hashtags = pd.DataFrame(Counter(tags).most_common(top_N), columns=['Hashtags', 'Frequency']).set_index('Hashtags')
+hashtags = hashtags.iloc[1:]
+
+plt.rcParams["figure.figsize"] = [30.0, 20.0]
+ax = sns.barplot(y=rslt.index, x="Frequency", data=rslt)
+ax.tick_params(labelsize=30)
+
+
+# Momentum of tweets:
+
 
