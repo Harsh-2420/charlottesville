@@ -1,4 +1,3 @@
-import random
 import nltk
 import pandas as pd
 import matplotlib.pyplot as plt
@@ -66,3 +65,4 @@ hashtags17 = find_hashtags(aug17)
 total_hashtags = np.concat([hashtags15, hashtags16, hashtags17])
 
 # plot total_hashtags
+# Use nltk further
