@@ -60,9 +60,9 @@ for item in ax.get_xticklabels():
 influential_tweets = aug15[['user_name', 'followers_count']]
 influential_tweets = influential_tweets.groupby('user_name').first().sort_values('followers_count', ascending=False)[:10] 
 
-hashtags16 = find_hashtags(aug16)
-hashtags17 = find_hashtags(aug17)
-total_hashtags = np.concat([hashtags15, hashtags16, hashtags17])
+# hashtags16 = find_hashtags(aug16)
+# hashtags17 = find_hashtags(aug17)
+# total_hashtags = np.concat([hashtags15, hashtags16, hashtags17])
 
 # plot total_hashtags
 # Use nltk further
