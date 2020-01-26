@@ -4,6 +4,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 from collections import Counter
 import seaborn as sns
+from nltk.corpus import stopwords
 
 aug15 = pd.read_csv("/Users/harshjhunjhunwala/Desktop/github_datasets/charlottesville-on-twitter/aug15_sample.csv")
 aug16 = pd.read_csv("/Users/harshjhunjhunwala/Desktop/github_datasets/charlottesville-on-twitter/aug16_sample.csv")
@@ -11,7 +12,7 @@ aug17 = pd.read_csv("/Users/harshjhunjhunwala/Desktop/github_datasets/charlottes
 
 # Removing stopwords:
 top_N = 30
-stopwords = nltk.corpus.stopwords.words('english')
+stopwords = stopwords.words('english') 
 RE_stopwords = r'\b(?:{})\b'.format('|'.join(stopwords))
 
 # most used words in the tweets and plotting it on barplot
@@ -25,7 +26,7 @@ rslt = pd.DataFrame(Counter(words).most_common(top_N),
                     columns=['Word', 'Frequency']).set_index('Word')
 
 rslt = rslt.iloc[1:]
-
+ 
 plt.rcParams["figure.figsize"] = [30.0, 20.0]
 ax = sns.barplot(y=rslt.index, x="Frequency", data=rslt)
 ax.tick_params(labelsize=30)
